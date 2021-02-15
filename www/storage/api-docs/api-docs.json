@@ -1,0 +1,194 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Lumen",
+        "description": "Documentação API usando Swagger",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/transaction": {
+            "post": {
+                "tags": [
+                    "transaction"
+                ],
+                "summary": "Make transaction",
+                "description": "",
+                "operationId": "createUser",
+                "requestBody": {
+                    "description": "Create user object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "value": 1,
+                                    "payer": 4,
+                                    "payee": 5
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "example": {
+                                        "success": "Enviado"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "operationId": "App\\Http\\Controllers\\UserController::get",
+                "responses": {
+                    "200": {
+                        "description": "An example resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "example": {
+                                        "id": 1,
+                                        "nome_completo": "Dr. Bret Frami PhD",
+                                        "cpf": "72685169542",
+                                        "cnpj": "86922855074731",
+                                        "email": "bret02@example.org",
+                                        "senha": "F^B:Qg+>pQ-^7#!dcmS_",
+                                        "carteira": "1.69",
+                                        "created_at": "2021-02-13T17:36:24.000000Z",
+                                        "updated_at": "2021-02-13T17:36:24.000000Z"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Create user",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "createUser",
+                "requestBody": {
+                    "description": "Create user object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "nome_completo": "Patricia Silva",
+                                    "email": "patricia@email.com",
+                                    "cpf": "41332513438",
+                                    "senha": "password",
+                                    "carteira": "50.00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "example": {
+                                        "nome_completo": "Patricia Silva",
+                                        "email": "patricia@email.com",
+                                        "cpf": "41332513438",
+                                        "senha": "password",
+                                        "carteira": 50,
+                                        "updated_at": "2021-02-15T15:51:37.000000Z",
+                                        "created_at": "2021-02-15T15:51:37.000000Z",
+                                        "id": 6
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{id}": {
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Updated user",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Updated user object",
+                    "required": true
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid user supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete user",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "user",
+            "description": "Operations about user",
+            "externalDocs": {
+                "description": "Find out more about store",
+                "url": "http://swagger.io"
+            }
+        }
+    ]
+}

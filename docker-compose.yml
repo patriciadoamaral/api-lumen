@@ -1,0 +1,27 @@
+php: 
+  build: .
+  ports:
+    - "81:80"
+    - "443:443"
+  volumes:
+    - ./www/:/var/www/html
+  links:
+    - db
+  
+db:
+  image: mysql:5.7
+  volumes:
+    - /var/lib/mysql
+  environment:    
+    - MYSQL_DATABASE=apilumen
+    - MYSQL_USER=root
+    - MYSQL_ROOT_PASSWORD=root
+
+app:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - db
+    ports:
+      - 88:80
+    environment:
+      - PMA_ARBITRARY=1
