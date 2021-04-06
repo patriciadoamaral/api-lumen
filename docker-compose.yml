@@ -1,20 +1,22 @@
 php: 
   build: .
   ports:
-    - "81:80"
+    - "80:80"
     - "443:443"
   volumes:
-    - ./www/:/var/www/html
+    - ./:/var/www/html
   links:
     - db
   
 db:
-  image: mysql:5.7
+  image: mysql:latest
   volumes:
     - /var/lib/mysql
+  ports:
+    - 3306:3306
   environment:    
     - MYSQL_DATABASE=apilumen
-    - MYSQL_USER=root
+    - MYSQL_ROOT_USER=root
     - MYSQL_ROOT_PASSWORD=root
 
 app:
