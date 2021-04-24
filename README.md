@@ -33,8 +33,8 @@ POST /transaction
 
 ## Tecnologias utilizadas
 
-- Lumen: Framework PHP utilizado para desenvolvimento da API
-- Swagger: Para a documentação da API 
+- Lumen: Framework PHP utilizado para desenvolvimento da API (https://lumen.laravel.com/docs)
+- Swagger para Lumen: Documentação da API (https://github.com/DarkaOnLine/SwaggerLume)
 - PHPUnit: Para os testes
 - Docker: Ambiente de desenvolvimento com PHP 8, última versão do Mysql, phpmyadmin e composer
 
@@ -59,11 +59,5 @@ Executar testes
 > vendor/bin/phpunit
 
 ## Acessos
-- API (http://localhost/public/api/{ENDPOINT})
-- Doc Swagger (http://localhost/public/api/documentation)
-
-# Links
-
-[Lumen](https://lumen.laravel.com/docs)
-
-[Swagger para Lumen](https://github.com/DarkaOnLine/SwaggerLume)
+- API (http://localhost/www/public/api/{ENDPOINT})
+- Doc Swagger (http://localhost/www/public/api/documentation)
